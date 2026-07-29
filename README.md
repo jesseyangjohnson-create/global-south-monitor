@@ -1,8 +1,16 @@
 # 全球南方观察 Global South Monitor
 
+[![在线访问](https://img.shields.io/badge/在线访问-global--south--monitor.vercel.app-146351)](https://global-south-monitor.vercel.app/)
+
 一个面向中文读者的全球南方新闻与研究资讯网站。本项目以“国际发展智库网站 + 全球新闻资讯平台”为定位，通过地区、国家和议题三个层次，整理国际发展、区域经济与全球治理相关内容。
 
 > 当前仓库中的 12 条新闻均为界面和功能测试所用的演示内容，不代表真实新闻。
+
+## 在线访问
+
+正式网站：[https://global-south-monitor.vercel.app/](https://global-south-monitor.vercel.app/)
+
+线上版本由 Vercel 托管。当前网站展示的是本地 Markdown 演示资讯，不提供自动新闻抓取、实时数据、AI 自动摘要、数据库或用户系统。
 
 ## 当前版本功能
 

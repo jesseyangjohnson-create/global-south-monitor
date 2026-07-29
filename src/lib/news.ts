@@ -9,33 +9,49 @@ export type NewsItem = {
   date: string;
   country: string;
   region: string;
+  tags: string[];
+  /** @deprecated 使用 tags；仅为旧组件保留。 */
   topics: string[];
   category: string;
   source: string;
   sourceUrl: string;
   summary: string;
   featured: boolean;
+  contentType: "news" | "analysis" | "weeklyBrief";
+  language: string;
+  updatedAt: string;
+  demo?: true;
   content: string;
 };
 
 const newsDirectory = path.join(process.cwd(), "content/news");
 
 function parseNewsFile(filename: string): NewsItem {
-  const slug = filename.replace(/\.md$/, "");
+  const filenameSlug = filename.replace(/\.md$/, "");
   const raw = fs.readFileSync(path.join(newsDirectory, filename), "utf8");
   const { data, content } = matter(raw);
+  const tags = Array.isArray(data.tags)
+    ? data.tags
+    : Array.isArray(data.topics)
+      ? data.topics
+      : [];
   return {
-    slug,
+    slug: data.slug || filenameSlug,
     title: data.title,
     date: data.date,
     country: data.country,
     region: normalizeRegion(data.region),
-    topics: data.topics,
-    category: data.category || categoryFromTopics(data.topics),
+    tags,
+    topics: tags,
+    category: data.category || categoryFromTopics(tags),
     source: data.source,
     sourceUrl: data.sourceUrl,
     summary: data.summary,
     featured: Boolean(data.featured),
+    contentType: data.contentType || "news",
+    language: data.language || "zh-CN",
+    updatedAt: data.updatedAt || data.date,
+    ...(data.demo === true ? { demo: true as const } : {}),
     content,
   };
 }

@@ -7,9 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node scripts/validate-content.mjs"
+    "typecheck": "tsc --noEmit",
+    "content:check": "node scripts/content-check.mjs",
+    "content:migrate": "node scripts/migrate-news.mjs",
+    "news:add": "node scripts/add-news.mjs",
+    "test": "npm run content:check"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "gray-matter": "^4.0.3",
     "next": "16.2.12",
     "react": "19.2.4",

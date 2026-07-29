@@ -1,0 +1,26 @@
+name: 内容纠错
+description: 报告标题、事实、分类、来源或链接问题
+title: "[内容纠错] "
+labels: ["content"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: 页面链接
+      placeholder: https://global-south-monitor.vercel.app/news/...
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: 问题说明
+      description: 请指出具体段落或字段，不要提交个人隐私。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 核验依据
+      description: 请提供原始资料或可信来源链接。
+    validations:
+      required: true

@@ -3,7 +3,10 @@ import { TopicCard } from "@/components/TopicCard";
 import { getAllNews } from "@/lib/news";
 import { CATEGORIES } from "@/lib/site";
 
-export const metadata: Metadata = { title: "核心议题" };
+export const metadata: Metadata = {
+  title: "核心议题",
+  alternates: { canonical: "/topics" },
+};
 
 export default function TopicsPage() {
   const news = getAllNews();

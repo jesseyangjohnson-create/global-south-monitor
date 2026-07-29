@@ -3,7 +3,10 @@ import Link from "next/link";
 import { NewsCard } from "@/components/NewsCard";
 import { getAllNews } from "@/lib/news";
 
-export const metadata: Metadata = { title: "每周观察" };
+export const metadata: Metadata = {
+  title: "每周观察",
+  alternates: { canonical: "/weekly" },
+};
 
 export default function WeeklyPage() {
   const news = getAllNews().slice(0, 6);

@@ -3,7 +3,10 @@ import { RegionCard } from "@/components/RegionCard";
 import { getAllNews } from "@/lib/news";
 import { REGIONS } from "@/lib/site";
 
-export const metadata: Metadata = { title: "全球地区" };
+export const metadata: Metadata = {
+  title: "全球地区",
+  alternates: { canonical: "/regions" },
+};
 
 export default function RegionsPage() {
   const news = getAllNews();

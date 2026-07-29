@@ -1,9 +1,27 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NewsList } from "@/components/NewsList";
 import { getAllNews } from "@/lib/news";
 
 export function generateStaticParams() {
   return [...new Set(getAllNews().map((item) => item.country))].map((country) => ({ slug: country }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const country = decodeURIComponent(slug);
+  const exists = getAllNews().some((item) => item.country === country);
+  return exists
+    ? {
+        title: `${country}资讯`,
+        description: `浏览全球南方观察收录的${country}相关资讯。`,
+        alternates: { canonical: `/countries/${encodeURIComponent(country)}` },
+      }
+    : {};
 }
 
 export default async function CountryDetail({ params }: { params: Promise<{ slug: string }> }) {

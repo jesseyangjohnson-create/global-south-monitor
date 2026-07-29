@@ -1,0 +1,27 @@
+name: 来源推荐
+description: 推荐可供人工审查的资讯或研究来源
+title: "[来源推荐] "
+labels: ["source"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 来源名称
+    validations:
+      required: true
+  - type: input
+    id: homepage
+    attributes:
+      label: 官方主页
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 推荐理由与覆盖范围
+    validations:
+      required: true
+  - type: textarea
+    id: copyright
+    attributes:
+      label: 已知版权或使用说明

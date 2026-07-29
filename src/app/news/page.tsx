@@ -3,7 +3,10 @@ import { NewsList } from "@/components/NewsList";
 import { getAllNews } from "@/lib/news";
 import { CATEGORIES, REGIONS } from "@/lib/site";
 
-export const metadata: Metadata = { title: "最新资讯" };
+export const metadata: Metadata = {
+  title: "最新资讯",
+  alternates: { canonical: "/news" },
+};
 
 export default async function NewsPage({
   searchParams,

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NewsList } from "@/components/NewsList";
@@ -7,6 +8,22 @@ import { REGIONS } from "@/lib/site";
 
 export function generateStaticParams() {
   return REGIONS.map((item) => ({ slug: item.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const region = REGIONS.find((item) => item.slug === slug);
+  return region
+    ? {
+        title: region.name,
+        description: region.description,
+        alternates: { canonical: `/regions/${region.slug}` },
+      }
+    : {};
 }
 
 export default async function RegionDetail({ params }: { params: Promise<{ slug: string }> }) {

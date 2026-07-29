@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllNews } from "@/lib/news";
 
-export const metadata: Metadata = { title: "国家分类" };
+export const metadata: Metadata = {
+  title: "国家分类",
+  alternates: { canonical: "/countries" },
+};
 
 export default function CountriesPage() {
   const news = getAllNews();

@@ -1,18 +1,23 @@
 ---
-title: "孟加拉国纺织业转型议题关注供应链韧性"
-date: "2026-07-26"
-country: "孟加拉国"
-region: "南亚"
-category: "经济"
-topics:
-  - "国际贸易"
-  - "产业与供应链"
-source: "演示来源"
-sourceUrl: "https://example.com"
-summary: "用于展示出口产业、贸易规则和供应链韧性分析入口的模拟内容。"
+title: 孟加拉国纺织业转型议题关注供应链韧性
+slug: bangladesh-textile-transition
+date: '2026-07-26'
+country: 孟加拉国
+region: 南亚
+category: 经济
+tags:
+  - 国际贸易
+  - 产业与供应链
+source: 演示来源
+sourceUrl: 'https://example.com/demo/bangladesh-textile-transition'
+summary: >-
+  演示内容，不代表真实新闻。用于展示出口产业、贸易规则和供应链韧性分析入口的模拟内容。本条目仅用于展示网站内容结构、分类筛选与页面样式，不构成事实报道或决策依据。
 featured: false
+contentType: news
+language: zh-CN
+updatedAt: '2026-07-26'
+demo: true
 ---
-
 **演示内容，不代表真实新闻。**
 
 本条资讯仅用于演示分类和搜索，不包含真实企业订单、出口额或政策承诺。

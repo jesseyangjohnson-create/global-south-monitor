@@ -1,0 +1,27 @@
+name: 网站故障
+description: 报告页面、链接、显示或可访问性故障
+title: "[网站故障] "
+labels: ["bug"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: 出现故障的页面
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际情况
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 设备与浏览器

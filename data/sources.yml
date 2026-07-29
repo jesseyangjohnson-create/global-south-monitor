@@ -1,0 +1,33 @@
+# 仅为格式示例；enabled: false，当前系统不会抓取或自动发布任何内容。
+- id: example-development-source
+  name: 示例发展资讯来源
+  type: news
+  homepage: https://example.com/development
+  rssUrl: https://example.com/development/feed.xml
+  language: zh-CN
+  priority: A
+  enabled: false
+  copyrightNote: 示例配置，不代表本站获得转载授权；使用前须人工核验版权和来源身份。
+  lastCheckedAt: "2026-07-29"
+
+- id: example-research-source
+  name: 示例研究来源
+  type: research
+  homepage: https://example.org/research
+  rssUrl: https://example.org/research/feed.xml
+  language: en
+  priority: B
+  enabled: false
+  copyrightNote: 示例配置；仅可人工摘录必要事实并保留原始链接，不转载完整正文。
+  lastCheckedAt: "2026-07-29"
+
+- id: example-regional-source
+  name: 示例地区来源
+  type: regional
+  homepage: https://example.net/regional
+  rssUrl: ""
+  language: es
+  priority: C
+  enabled: false
+  copyrightNote: 示例配置；图片和文字版权状态尚未核验，不得直接使用。
+  lastCheckedAt: "2026-07-29"

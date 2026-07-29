@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "关于网站" };
+export const metadata: Metadata = {
+  title: "关于网站",
+  alternates: { canonical: "/about" },
+};
 
 export default function AboutPage() {
   return (

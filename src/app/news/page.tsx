@@ -33,7 +33,7 @@ export default async function NewsPage({
         <div className="shell">
           <div className="eyebrow">LATEST UPDATES</div>
           <h1>最新资讯</h1>
-          <p>搜索并筛选全球南方发展议题的本地演示资讯。</p>
+          <p>搜索并筛选经过人工核验的全球南方发展资讯。</p>
         </div>
       </div>
       <section className="section shell">

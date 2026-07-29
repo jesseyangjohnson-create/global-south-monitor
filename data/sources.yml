@@ -31,3 +31,69 @@
   enabled: false
   copyrightNote: 示例配置；图片和文字版权状态尚未核验，不得直接使用。
   lastCheckedAt: "2026-07-29"
+
+- id: african-development-bank
+  name: 非洲开发银行
+  type: multilateral
+  homepage: https://www.afdb.org/
+  rssUrl: ""
+  language: en
+  priority: A
+  enabled: true
+  copyrightNote: 仅摘录并改写必要事实，保留公告链接；图片和完整正文不得直接转载。
+  lastCheckedAt: "2026-07-29"
+
+- id: asian-development-bank
+  name: 亚洲开发银行
+  type: multilateral
+  homepage: https://www.adb.org/
+  rssUrl: https://www.adb.org/rss/news-releases
+  language: en
+  priority: A
+  enabled: true
+  copyrightNote: 仅摘录并改写必要事实，保留公告或项目页链接。
+  lastCheckedAt: "2026-07-29"
+
+- id: inter-american-development-bank
+  name: 美洲开发银行
+  type: multilateral
+  homepage: https://www.iadb.org/
+  rssUrl: ""
+  language: en
+  priority: A
+  enabled: true
+  copyrightNote: 仅摘录并改写必要事实，保留公告链接。
+  lastCheckedAt: "2026-07-29"
+
+- id: world-bank
+  name: 世界银行
+  type: multilateral
+  homepage: https://www.worldbank.org/
+  rssUrl: ""
+  language: en
+  priority: A
+  enabled: true
+  copyrightNote: 仅摘录并改写必要事实，保留新闻稿或项目链接。
+  lastCheckedAt: "2026-07-29"
+
+- id: international-monetary-fund
+  name: 国际货币基金组织
+  type: multilateral
+  homepage: https://www.imf.org/
+  rssUrl: ""
+  language: en
+  priority: A
+  enabled: true
+  copyrightNote: 区分工作人员级协议、管理层批准和执董会决定，保留原始公告链接。
+  lastCheckedAt: "2026-07-29"
+
+- id: world-health-organization
+  name: 世界卫生组织
+  type: multilateral
+  homepage: https://www.who.int/
+  rssUrl: ""
+  language: en
+  priority: A
+  enabled: true
+  copyrightNote: 疫情数据必须标明通报截止日期，不把累计报告数写成当日新增数。
+  lastCheckedAt: "2026-07-29"

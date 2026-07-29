@@ -123,7 +123,7 @@ export default function Home() {
       <section className="section about-strip">
         <Reveal className="shell about-strip-inner">
           <div><span className="eyebrow">ABOUT THE MONITOR</span><h2>在新闻速度与研究深度之间，提供清晰的中文观察入口。</h2></div>
-          <div><p>全球南方观察关注国际发展、区域经济及全球治理。当前版本全部使用本地演示内容，用于验证分类、阅读与检索体验。</p><Link className="section-link" href="/about">了解我们的方法 →</Link></div>
+          <div><p>全球南方观察关注国际发展、区域经济及全球治理。公开资讯由编辑人工检索、核验、录入，并保留原始来源链接。</p><Link className="section-link" href="/about">了解我们的方法 →</Link></div>
         </Reveal>
       </section>
     </main>

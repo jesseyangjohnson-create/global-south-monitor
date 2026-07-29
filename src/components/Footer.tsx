@@ -18,7 +18,7 @@ export function Footer() {
         <div>
           <span className="footer-label">说明</span>
           <Link href="/about">关于网站</Link>
-          <p>本站第一版内容均为界面演示，不构成政策、投资或法律建议。</p>
+          <p>本站提供人工整理的资讯摘要，不构成政策、投资或法律建议。</p>
         </div>
       </div>
       <div className="shell copyright">

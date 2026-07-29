@@ -32,7 +32,7 @@ export default async function TopicDetail({ params }: { params: Promise<{ slug: 
   const items = getAllNews().filter((item) => item.category === name);
   return (
     <main>
-      <div className="page-hero"><div className="shell"><div className="eyebrow">GLOBAL ISSUE DESK</div><h1>{name}</h1><p>{category.description}。当前收录 {items.length} 条演示资讯。</p></div></div>
+      <div className="page-hero"><div className="shell"><div className="eyebrow">GLOBAL ISSUE DESK</div><h1>{name}</h1><p>{category.description}。当前收录 {items.length} 条资讯。</p></div></div>
       <section className="section shell"><NewsList items={items} /></section>
     </main>
   );

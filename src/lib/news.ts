@@ -61,13 +61,15 @@ export function getAllNews(): NewsItem[] {
     .readdirSync(newsDirectory)
     .filter((file) => file.endsWith(".md"))
     .map(parseNewsFile)
+    .filter((item) => !item.demo)
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export function getNewsBySlug(slug: string) {
   const file = `${slug}.md`;
   if (!fs.existsSync(path.join(newsDirectory, file))) return undefined;
-  return parseNewsFile(file);
+  const item = parseNewsFile(file);
+  return item.demo ? undefined : item;
 }
 
 export function formatDate(date: string) {

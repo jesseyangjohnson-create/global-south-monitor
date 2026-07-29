@@ -1,0 +1,125 @@
+export const CATEGORIES = [
+  { name: "经济", slug: "economy", icon: "chart", description: "贸易、就业、区域经济与基础设施" },
+  { name: "金融", slug: "finance", icon: "finance", description: "发展融资、债务、汇率与资本市场" },
+  { name: "社会与发展", slug: "society-development", icon: "people", description: "贫困、不平等、教育、医疗与迁移" },
+  { name: "地缘与安全", slug: "geopolitics-security", icon: "compass", description: "国际关系、区域合作与供应链安全" },
+  { name: "气候与环境", slug: "climate-environment", icon: "leaf", description: "气候变化、能源转型与生态治理" },
+  { name: "全球治理", slug: "global-governance", icon: "globe", description: "南南合作、多边机构与国际规则" },
+  { name: "农业与粮食安全", slug: "agriculture-food-security", icon: "grain", description: "农业发展、粮食价格与气候韧性" },
+  { name: "科技与产业", slug: "technology-industry", icon: "circuit", description: "数字经济、制造业、新能源与技术转移" },
+] as const;
+
+export const LEGACY_TOPIC_TO_CATEGORY: Record<string, string> = {
+  国际发展: "社会与发展",
+  发展融资: "金融",
+  主权债务: "金融",
+  债务: "金融",
+  国际贸易: "经济",
+  "产业与供应链": "科技与产业",
+  气候与环境: "气候与环境",
+  能源转型: "气候与环境",
+  农业与粮食安全: "农业与粮食安全",
+  贫困与不平等: "社会与发展",
+  全球治理: "全球治理",
+  区域合作: "地缘与安全",
+  供应链安全: "地缘与安全",
+};
+
+export const REGIONS = [
+  {
+    name: "撒哈拉以南非洲",
+    slug: "sub-saharan-africa",
+    legacyNames: ["非洲"],
+    description: "关注大陆南部的发展融资、产业转型与区域合作。",
+    countries: ["赞比亚", "肯尼亚", "南非", "尼日利亚"],
+    shape: "africa",
+  },
+  {
+    name: "中东与北非",
+    slug: "mena",
+    legacyNames: [],
+    description: "观察能源、水资源、人口流动与区域经济韧性。",
+    countries: ["摩洛哥", "约旦", "埃及", "阿联酋"],
+    shape: "mena",
+  },
+  {
+    name: "拉丁美洲与加勒比",
+    slug: "latin-america-caribbean",
+    legacyNames: [],
+    description: "追踪绿色产业、社会政策与区域贸易的新变化。",
+    countries: ["巴西", "秘鲁", "墨西哥", "智利"],
+    shape: "latin",
+  },
+  {
+    name: "南亚",
+    slug: "south-asia",
+    legacyNames: [],
+    description: "聚焦人口密集型经济体的产业、城市与公共服务。",
+    countries: ["印度", "孟加拉国", "巴基斯坦", "斯里兰卡"],
+    shape: "south-asia",
+  },
+  {
+    name: "东南亚",
+    slug: "southeast-asia",
+    legacyNames: [],
+    description: "连接制造业网络、海洋经济与能源转型议题。",
+    countries: ["印度尼西亚", "越南", "泰国", "菲律宾"],
+    shape: "southeast-asia",
+  },
+  {
+    name: "中亚",
+    slug: "central-asia",
+    legacyNames: [],
+    description: "观察跨境通道、资源经济与区域连接。",
+    countries: ["哈萨克斯坦", "乌兹别克斯坦", "吉尔吉斯斯坦"],
+    shape: "central-asia",
+  },
+  {
+    name: "太平洋岛国",
+    slug: "pacific-islands",
+    legacyNames: [],
+    description: "关注小岛屿经济、海洋治理与气候适应。",
+    countries: ["斐济", "巴布亚新几内亚", "萨摩亚", "汤加"],
+    shape: "pacific",
+  },
+] as const;
+
+// 保留旧名称导出，避免已有组件或外部引用失效。
+export const TOPICS = CATEGORIES;
+
+export function categoryFromTopics(topics: string[]) {
+  for (const topic of topics) {
+    const category = LEGACY_TOPIC_TO_CATEGORY[topic];
+    if (category) return category;
+  }
+  return "社会与发展";
+}
+
+export function regionMatches(regionName: string, value: string) {
+  const region = REGIONS.find((item) => item.name === regionName);
+  return region
+    ? region.name === value || region.legacyNames.some((name) => name === value)
+    : regionName === value;
+}
+
+export function normalizeRegion(value: string) {
+  return REGIONS.find(
+    (item) => item.name === value || item.legacyNames.some((name) => name === value),
+  )?.name ?? value;
+}
+
+export function nameFromSlug(
+  items: readonly { name: string; slug: string }[],
+  slug: string,
+) {
+  return items.find((item) => item.slug === slug)?.name;
+}
+
+export function slugFromName(
+  items: readonly { name: string; slug: string; legacyNames?: readonly string[] }[],
+  name: string,
+) {
+  return items.find(
+    (item) => item.name === name || item.legacyNames?.some((legacy) => legacy === name),
+  )?.slug;
+}

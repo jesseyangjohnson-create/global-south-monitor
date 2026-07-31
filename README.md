@@ -22,7 +22,7 @@
 - 首页热点轮播、今日热点、最新资讯、核心议题、全球地区和每周观察
 - 关键词搜索以及地区、一级议题筛选
 - 新闻详情、来源链接、地区 → 国家 → 国家新闻层级
-- 八个一级议题、七个地区和旧标签兼容映射
+- 九个一级议题、七个地区和旧标签兼容映射
 - 本地 Markdown 内容与规范化 front matter
 - 交互式本地录入工具和阻断式内容质量检查
 - 响应式布局、减少动画设置和本地 SVG 视觉资源
@@ -120,6 +120,8 @@ updatedAt: "2026-07-29"
 必填字段为 `title`、`slug`、`date`、`country`、`region`、`category`、`tags`、`source`、`sourceUrl`、`summary`、`featured`、`contentType`、`language` 和 `updatedAt`。`contentType` 仅可为 `news`、`analysis` 或 `weeklyBrief`。
 
 一级议题和地区只在 [`config/content-taxonomy.json`](config/content-taxonomy.json) 中维护，页面、录入工具和检查工具共同读取该文件。旧 `topics` 字段仍可由读取层兼容，但新内容必须使用 `tags`。
+
+当前一级议题为：经济、金融、社会与发展、地缘与安全、气候与环境、全球治理、农业与粮食安全、科技与产业、中国与全球南方。其中“中国与全球南方”只用于中国与全球南方国家、地区或合作机制之间的贸易、融资、基础设施、技术、农业、发展与治理资讯；不能仅因正文提及中国就归入该门类。
 
 演示新闻须设置 `demo: true` 并明确写明“演示内容，不代表真实新闻”。正式新闻不得包含 `demo` 字段或演示文字。
 

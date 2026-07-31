@@ -47,7 +47,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-tint">
+      <section className="section latest-section">
         <div className="shell">
           <Reveal>
             <div className="section-heading">
@@ -65,8 +65,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section shell">
-        <Reveal>
+      <section className="section topics-section">
+        <div className="shell"><Reveal>
           <div className="section-heading">
             <div><span>CORE ISSUES</span><h2>核心议题</h2></div>
             <p className="section-note">用更清晰的一级分类连接复杂世界</p>
@@ -78,7 +78,7 @@ export default function Home() {
               <TopicCard topic={topic} count={news.filter((item) => item.category === topic.name).length} />
             </Reveal>
           ))}
-        </div>
+        </div></div>
       </section>
 
       <section className="section regions-section">

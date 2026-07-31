@@ -1,4 +1,4 @@
-type IconName = "chart" | "finance" | "people" | "compass" | "leaf" | "globe" | "grain" | "circuit";
+type IconName = "chart" | "finance" | "people" | "compass" | "leaf" | "globe" | "grain" | "circuit" | "connections";
 
 export function TopicIcon({ name, size = 26 }: { name: string; size?: number }) {
   const common = {
@@ -23,6 +23,7 @@ export function TopicIcon({ name, size = 26 }: { name: string; size?: number }) 
       {icon === "globe" && <><circle cx="16" cy="16" r="11"/><path d="M5 16h22M16 5c4 4 4 18 0 22M16 5c-4 4-4 18 0 22"/></>}
       {icon === "grain" && <><path d="M16 27V7M16 12c-5 0-7-3-7-6 5 0 7 3 7 6ZM16 18c-5 0-8-3-8-6 5 0 8 3 8 6ZM16 14c5 0 7-3 7-6-5 0-7 3-7 6ZM16 21c5 0 8-3 8-6-5 0-8 3-8 6Z"/></>}
       {icon === "circuit" && <><rect x="9" y="9" width="14" height="14" rx="2"/><path d="M13 13h6v6h-6zM13 4v5M19 4v5M13 23v5M19 23v5M4 13h5M4 19h5M23 13h5M23 19h5"/></>}
+      {icon === "connections" && <><circle cx="9" cy="16" r="4"/><circle cx="23" cy="9" r="3"/><circle cx="24" cy="24" r="3"/><path d="m12.5 14 7.5-3.7M12.5 18l8.5 4.5M23 12v9"/></>}
     </svg>
   );
 }

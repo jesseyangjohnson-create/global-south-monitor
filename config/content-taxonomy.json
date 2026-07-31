@@ -7,7 +7,8 @@
     { "name": "气候与环境", "slug": "climate-environment", "icon": "leaf", "description": "气候变化、能源转型与生态治理" },
     { "name": "全球治理", "slug": "global-governance", "icon": "globe", "description": "南南合作、多边机构与国际规则" },
     { "name": "农业与粮食安全", "slug": "agriculture-food-security", "icon": "grain", "description": "农业发展、粮食价格与气候韧性" },
-    { "name": "科技与产业", "slug": "technology-industry", "icon": "circuit", "description": "数字经济、制造业、新能源与技术转移" }
+    { "name": "科技与产业", "slug": "technology-industry", "icon": "circuit", "description": "数字经济、制造业、新能源与技术转移" },
+    { "name": "中国与全球南方", "slug": "china-global-south", "icon": "connections", "description": "中国与全球南方的贸易、发展与合作网络" }
   ],
   "regions": [
     {
@@ -82,6 +83,17 @@
     "贫困与不平等": "社会与发展",
     "全球治理": "全球治理",
     "区域合作": "地缘与安全",
-    "供应链安全": "地缘与安全"
+    "供应链安全": "地缘与安全",
+    "南南合作": "中国与全球南方",
+    "一带一路": "中国与全球南方",
+    "中非合作": "中国与全球南方",
+    "中拉合作": "中国与全球南方",
+    "中国与东盟": "中国与全球南方",
+    "中国与南亚": "中国与全球南方",
+    "中国与中亚": "中国与全球南方",
+    "中国与中东": "中国与全球南方",
+    "中国与太平洋岛国": "中国与全球南方",
+    "全球发展倡议": "中国与全球南方",
+    "金砖合作": "中国与全球南方"
   }
 }

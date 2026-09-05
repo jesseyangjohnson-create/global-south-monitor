@@ -2,11 +2,13 @@ import type { MetadataRoute } from "next";
 import { getAllNews } from "@/lib/news";
 import { CATEGORIES, REGIONS } from "@/lib/site";
 import { absoluteUrl } from "@/lib/site-url";
+import { COUNTRY_REGISTRY } from "@/lib/countries";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const news = getAllNews();
   const staticPaths = ["", "/news", "/regions", "/topics", "/countries", "/weekly", "/about"];
   const countries = [...new Set(news.map((item) => item.country))];
+  const mappedCountries = COUNTRY_REGISTRY.filter((country) => countries.includes(country.nameZh));
   const latestUpdate = news[0]?.updatedAt ?? new Date().toISOString().slice(0, 10);
 
   return [
@@ -39,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: latestUpdate,
       changeFrequency: "weekly" as const,
       priority: 0.5,
+    })),
+    ...mappedCountries.map((country) => ({
+      url: absoluteUrl(`/country/${country.slug}`),
+      lastModified: latestUpdate,
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
     })),
   ];
 }

@@ -2,17 +2,20 @@ import Link from "next/link";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { NewsCard } from "@/components/NewsCard";
 import { NewsVisual } from "@/components/NewsVisual";
+import { NewsGlobeSection } from "@/components/NewsGlobeSection";
 import { RegionCard } from "@/components/RegionCard";
 import { Reveal } from "@/components/Reveal";
 import { TopicCard } from "@/components/TopicCard";
 import { formatDate, getAllNews } from "@/lib/news";
 import { CATEGORIES, REGIONS } from "@/lib/site";
+import { getGlobeData } from "@/lib/globe-data";
 
 export default function Home() {
   const news = getAllNews();
   const featured = news.find((item) => item.featured) ?? news[0];
   const secondary = news.filter((item) => item.slug !== featured.slug).slice(0, 3);
   const latest = news.slice(0, 8);
+  const globeData = getGlobeData();
 
   return (
     <main className="home-page">
@@ -80,6 +83,8 @@ export default function Home() {
           ))}
         </div></div>
       </section>
+
+      <NewsGlobeSection data={globeData} />
 
       <section className="section regions-section">
         <div className="shell">

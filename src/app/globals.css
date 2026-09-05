@@ -259,6 +259,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .globe-placeholder { display: grid; place-items: center; color: #9db5ba; border: 1px solid rgba(183,203,208,.12); font-size: 12px; }
 .globe-loading { position: absolute; inset: 0; display: grid; place-items: center; color: #a9bdc2; pointer-events: none; font-size: 11px; }
 .globe-instruction { margin: -8px 0 0; color: #829ca3; font-size: 10px; text-align: center; }
+.globe-boundary-note { max-width: 620px; margin: 8px auto 0; color: #718d95; font-size: 9px; line-height: 1.6; text-align: center; }
 .globe-tooltip { display: grid; gap: 3px; max-width: 280px; padding: 10px 12px; color: #eef6f3; background: rgba(4,24,36,.94); border: 1px solid rgba(142,209,189,.34); border-radius: 4px; box-shadow: 0 8px 28px rgba(0,0,0,.22); font-family: var(--font-sans); }
 .globe-tooltip strong { font-size: 12px; line-height: 1.45; }
 .globe-tooltip span { color: #a8bec3; font-size: 10px; }

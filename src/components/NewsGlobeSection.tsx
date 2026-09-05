@@ -74,6 +74,7 @@ export function NewsGlobeSection({ data }: { data: GlobeData }) {
             {isNearViewport ? <NewsGlobe countries={data.countries} points={data.points} activeRegion={activeRegion} /> : <div className="globe-placeholder">新闻地图将在进入视野时载入</div>}
           </GlobeBoundary>
           <p className="globe-instruction">拖动旋转 · 滚轮缩放 · 点击国家或新闻点浏览</p>
+          <p className="globe-boundary-note">地图边界显示用于新闻空间导航；部分边界存在争议，不代表对相关主权争议作出独立法律判断。</p>
         </div>
       </div>
     </section>

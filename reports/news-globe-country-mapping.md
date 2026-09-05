@@ -35,3 +35,9 @@
 ## 数据来源
 
 国家边界来自开放数据包 `world-atlas` 的 Natural Earth 派生 `countries-110m` 数据。使用低复杂度边界以控制首页 WebGL 负载，没有使用参考网站的代码、图片、纹理或模型。
+
+## 台湾与中印东段边界说明
+
+`world-atlas` 的 `countries-110m` 中存在独立的 numeric ISO `158`（Taiwan）feature。当前地图将该 feature 映射到中国（numeric ISO `156`）的视觉和 `/country/china` 点击目标，以保持站点当前中国国家页的一致性；这是本网站的呈现口径，不声称 Natural Earth/world-atlas 原始边界本身就是中国官方标准地图。
+
+当前使用的 `world-atlas` 几何没有把中印东段争议地区拆成可独立识别的 feature。为避免把整块印度 polygon 错误着色或手工绘制假边界，本版本没有添加该争议地区 overlay。地图边界提示已在地球组件下方显示。

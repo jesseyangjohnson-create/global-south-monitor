@@ -71,7 +71,13 @@ export function NewsGlobe({ countries, points, activeRegion }: { countries: Glob
 
   const countryForPolygon = (polygon: object) => {
     const id = (polygon as PolygonFeature).id;
-    return id === undefined ? undefined : countryById.get(String(id).padStart(3, "0"));
+    if (id === undefined) return undefined;
+    // world-atlas exposes Taiwan as numeric ISO 158. For this site's China
+    // country navigation and restrained visual language, keep it in the same
+    // visual/click target as mainland China. This is a presentation choice,
+    // not a claim that the source geometry resolves the underlying dispute.
+    if (String(id).padStart(3, "0") === "158") return countryById.get("156");
+    return countryById.get(String(id).padStart(3, "0"));
   };
 
   return (

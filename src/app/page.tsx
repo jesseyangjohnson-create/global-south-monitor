@@ -9,7 +9,6 @@ import { TopicCard } from "@/components/TopicCard";
 import { formatDate, getAllNews } from "@/lib/news";
 import { CATEGORIES, REGIONS } from "@/lib/site";
 import { getGlobeData } from "@/lib/globe-data";
-import { HomeIssueImages } from "@/components/HomeIssueImages";
 
 export default function Home() {
   const news = getAllNews();
@@ -86,8 +85,6 @@ export default function Home() {
       </section>
 
       <NewsGlobeSection data={globeData} />
-
-      <HomeIssueImages />
 
       <section className="section regions-section">
         <div className="shell">

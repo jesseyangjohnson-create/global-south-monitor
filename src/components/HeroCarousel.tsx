@@ -8,6 +8,7 @@ import { NewsVisual } from "@/components/NewsVisual";
 import { TopicIcon } from "@/components/TopicIcon";
 import { WorldMapGraphic } from "@/components/WorldMapGraphic";
 import Image from "next/image";
+import { HOME_IMAGE_CREDITS } from "@/data/home-image-credits";
 
 function displayDate(date: string) {
   return date.replaceAll("-", ".");
@@ -19,6 +20,8 @@ export function HeroCarousel({ featured }: { featured: NewsItem }) {
   const [reducedMotion, setReducedMotion] = useState(false);
   const touchStart = useRef<number | null>(null);
   const slideCount = 3;
+  const globalIssuesImage = HOME_IMAGE_CREDITS.find((image) => image.id === "home-global-issues-singapore")!;
+  const globalSouthImage = HOME_IMAGE_CREDITS.find((image) => image.id === "home-global-south-jakarta")!;
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -57,7 +60,7 @@ export function HeroCarousel({ featured }: { featured: NewsItem }) {
       }}
     >
       <div className={`hero-slide hero-brand-slide ${active === 0 ? "is-active" : ""}`} aria-hidden={active !== 0}>
-        <div className="hero-brand-photo"><Image src="/images/home/hero-sao-paulo.webp" alt="巴西圣保罗城市天际线航拍" fill priority sizes="(max-width: 760px) 100vw, 48vw" /></div>
+        <div className="hero-brand-photo"><Image src={globalSouthImage.path} alt={globalSouthImage.alt} fill priority sizes="100vw" style={{ objectPosition: globalSouthImage.objectPosition }} /></div>
         <div className="hero-map-wrap"><WorldMapGraphic /></div>
         <div className="shell hero-content">
           <div className="eyebrow">GLOBAL SOUTH MONITOR</div>
@@ -87,6 +90,7 @@ export function HeroCarousel({ featured }: { featured: NewsItem }) {
       </div>
 
       <div className={`hero-slide hero-issues-slide ${active === 2 ? "is-active" : ""}`} aria-hidden={active !== 2}>
+        <div className="hero-issues-photo"><Image src={globalIssuesImage.path} alt={globalIssuesImage.alt} fill sizes="100vw" style={{ objectPosition: globalIssuesImage.objectPosition }} /></div>
         <div className="issue-data-field" aria-hidden="true" />
         <div className="shell hero-content">
           <div className="eyebrow">ISSUES THAT SHAPE OUR WORLD</div>

@@ -5,7 +5,7 @@ date: "2026-07-09"
 updatedAt: "2026-07-29"
 country: "巴基斯坦"
 region: "南亚"
-category: "气候与环境"
+category: "能源问题"
 tags:
   - "电网升级"
   - "可再生能源"

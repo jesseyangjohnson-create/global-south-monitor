@@ -4,7 +4,7 @@ slug: indonesia-energy-transition
 date: '2026-07-25'
 country: 印度尼西亚
 region: 东南亚
-category: 气候与环境
+category: 能源问题
 tags:
   - 能源转型
   - 国际发展

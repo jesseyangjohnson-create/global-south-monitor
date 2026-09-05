@@ -5,7 +5,7 @@ date: "2026-07-27"
 updatedAt: "2026-07-31"
 country: "肯尼亚"
 region: "撒哈拉以南非洲"
-category: "气候与环境"
+category: "能源问题"
 tags:
   - "能源转型"
   - "电力可及"
@@ -36,4 +36,3 @@ language: "zh-CN"
 - 主要来源：非洲开发银行
 - 原文链接：https://www.afdb.org/en/news-and-events/press-releases/kenya-advances-mission-300-national-energy-compact-delivery-through-implementation-support-workshop-95756
 - 原始发布日期：2026-07-27
-

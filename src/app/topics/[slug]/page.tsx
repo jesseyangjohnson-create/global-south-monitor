@@ -4,6 +4,8 @@ import { NewsList } from "@/components/NewsList";
 import { getAllNews } from "@/lib/news";
 import { CATEGORIES, nameFromSlug } from "@/lib/site";
 
+const LEGACY_SLUGS: Record<string, string> = { "climate-environment": "climate" };
+
 export function generateStaticParams() {
   return CATEGORIES.map((item) => ({ slug: item.slug }));
 }
@@ -14,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const category = CATEGORIES.find((item) => item.slug === slug);
+  const category = CATEGORIES.find((item) => item.slug === (LEGACY_SLUGS[slug] ?? slug));
   return category
     ? {
         title: category.name,
@@ -26,8 +28,9 @@ export async function generateMetadata({
 
 export default async function TopicDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const category = CATEGORIES.find((item) => item.slug === slug);
-  const name = nameFromSlug(CATEGORIES, slug);
+  const canonicalSlug = LEGACY_SLUGS[slug] ?? slug;
+  const category = CATEGORIES.find((item) => item.slug === canonicalSlug);
+  const name = nameFromSlug(CATEGORIES, canonicalSlug);
   if (!name || !category) notFound();
   const items = getAllNews().filter((item) => item.category === name);
   return (

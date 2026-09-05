@@ -4,7 +4,7 @@ slug: fiji-climate-finance
 date: '2026-07-22'
 country: 斐济
 region: 太平洋岛国
-category: 气候与环境
+category: 气候问题
 tags:
   - 发展融资
   - 气候与环境

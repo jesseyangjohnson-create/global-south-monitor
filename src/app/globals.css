@@ -217,7 +217,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .topic-card-finance { --topic-a:#304e72; --topic-b:#65799a; }
 .topic-card-society-development { --topic-a:#7b594a; --topic-b:#b5795d; }
 .topic-card-geopolitics-security { --topic-a:#35465c; --topic-b:#687480; }
-.topic-card-climate-environment { --topic-a:#28634f; --topic-b:#659270; }
+.topic-card-climate { --topic-a:#28634f; --topic-b:#659270; }
+.topic-card-energy { --topic-a:#8a5a24; --topic-b:#b88a3e; }
 .topic-card-global-governance { --topic-a:#4a4778; --topic-b:#7180aa; }
 .topic-card-agriculture-food-security { --topic-a:#6e693d; --topic-b:#a18d4f; }
 .topic-card-technology-industry { --topic-a:#365069; --topic-b:#528297; }

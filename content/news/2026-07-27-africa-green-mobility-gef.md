@@ -5,7 +5,7 @@ date: "2026-07-27"
 updatedAt: "2026-07-31"
 country: "非洲多国"
 region: "撒哈拉以南非洲"
-category: "气候与环境"
+category: "能源问题"
 tags:
   - "绿色交通"
   - "气候融资"
@@ -36,4 +36,3 @@ language: "zh-CN"
 - 主要来源：非洲开发银行
 - 原文链接：https://www.afdb.org/en/news-and-events/gef-approves-1346-million-african-development-bank-led-initiative-accelerate-green-mobility-solutions-across-africa
 - 原始发布日期：2026-07-27
-

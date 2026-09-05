@@ -33,7 +33,7 @@
     "@types/three": "^0.185.4",
     "@types/topojson-client": "^3.1.5",
     "eslint": "^9",
-    "eslint-config-next": "16.2.12",
+    "eslint-config-next": "16.3.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

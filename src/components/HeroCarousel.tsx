@@ -57,6 +57,7 @@ export function HeroCarousel({ featured }: { featured: NewsItem }) {
       }}
     >
       <div className={`hero-slide hero-brand-slide ${active === 0 ? "is-active" : ""}`} aria-hidden={active !== 0}>
+        <div className="hero-brand-photo"><Image src="/images/home/hero-sao-paulo.webp" alt="巴西圣保罗城市天际线航拍" fill priority sizes="(max-width: 760px) 100vw, 48vw" /></div>
         <div className="hero-map-wrap"><WorldMapGraphic /></div>
         <div className="shell hero-content">
           <div className="eyebrow">GLOBAL SOUTH MONITOR</div>

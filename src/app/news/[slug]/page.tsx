@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 import { formatDate, getAllNews, getNewsBySlug } from "@/lib/news";
+import { NewsVisual } from "@/components/NewsVisual";
 import { absoluteUrl, getSiteUrl } from "@/lib/site-url";
 
 export function generateStaticParams() {
@@ -29,8 +31,9 @@ export async function generateMetadata({
           publishedTime: item.date,
           modifiedTime: item.updatedAt,
           locale: "zh_CN",
+          ...(item.image ? { images: [{ url: item.image, alt: item.imageAlt }] } : {}),
         },
-        twitter: { card: "summary", title: item.title, description: item.summary },
+        twitter: { card: item.image ? "summary_large_image" : "summary", title: item.title, description: item.summary, ...(item.image ? { images: [item.image] } : {}) },
       }
     : {};
 }
@@ -59,6 +62,7 @@ export default async function NewsDetail({
       url: getSiteUrl().toString(),
     },
     isAccessibleForFree: true,
+    ...(item.image ? { image: absoluteUrl(item.image) } : {}),
   };
 
   return (
@@ -82,6 +86,19 @@ export default async function NewsDetail({
           <span>大类：{item.category}</span>
           <span>标签：{item.topics.join(" / ")}</span>
         </div>
+        {item.image ? (
+          <figure className="article-image">
+            <div className="article-image-frame">
+              <Image src={item.image} alt={item.imageAlt ?? ""} fill priority sizes="(max-width: 860px) 100vw, 812px" />
+            </div>
+            <figcaption>
+              图片：{item.imageCredit} · <a href={item.imageSourceUrl} target="_blank" rel="noreferrer">{item.imageSource}</a>
+              <span> · {item.imageLicense}</span>
+            </figcaption>
+          </figure>
+        ) : (
+          <div className="article-fallback"><NewsVisual category={item.category} region={item.region} large /></div>
+        )}
         {item.demo && <div className="demo-alert">演示内容，不代表真实新闻。</div>}
         <div className="article-content">
           <ReactMarkdown>{item.content}</ReactMarkdown>

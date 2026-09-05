@@ -7,6 +7,7 @@ import { CATEGORIES } from "@/lib/site";
 import { NewsVisual } from "@/components/NewsVisual";
 import { TopicIcon } from "@/components/TopicIcon";
 import { WorldMapGraphic } from "@/components/WorldMapGraphic";
+import Image from "next/image";
 
 function displayDate(date: string) {
   return date.replaceAll("-", ".");
@@ -70,7 +71,7 @@ export function HeroCarousel({ featured }: { featured: NewsItem }) {
       </div>
 
       <div className={`hero-slide hero-news-slide ${active === 1 ? "is-active" : ""}`} aria-hidden={active !== 1}>
-        <div className="hero-news-visual"><NewsVisual category={featured.category} region={featured.region} large /></div>
+        <div className="hero-news-visual">{featured.image ? <Image src={featured.image} alt="" fill priority sizes="100vw" /> : <NewsVisual category={featured.category} region={featured.region} large />}</div>
         <div className="shell hero-content hero-news-content">
           <div className="hero-news-copy">
             <div className="eyebrow">FEATURED BRIEF · {featured.region}</div>

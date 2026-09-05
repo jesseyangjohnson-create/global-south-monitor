@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { formatDate, type NewsItem } from "@/lib/news";
 import { CATEGORIES, REGIONS, slugFromName } from "@/lib/site";
 import { NewsVisual } from "@/components/NewsVisual";
@@ -14,7 +15,9 @@ export function NewsCard({
   const categorySlug = slugFromName(CATEGORIES, item.category);
   return (
     <article className={`news-card ${compact ? "news-card-compact" : ""}`}>
-      {!compact && <NewsVisual category={item.category} region={item.region} />}
+      {!compact && (item.image ? (
+        <div className="news-card-image"><Image src={item.image} alt={item.imageAlt ?? ""} fill sizes="(max-width: 760px) 100vw, 420px" /></div>
+      ) : <NewsVisual category={item.category} region={item.region} />)}
       <div className="news-card-body">
         <div className="card-kicker">
           {categorySlug ? <Link href={`/topics/${categorySlug}`}>{item.category}</Link> : item.category}

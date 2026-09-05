@@ -30,6 +30,9 @@ const reservedSlugs = new Set(["api", "index", "new", "page", "rss", "robots", "
 const errors = [];
 const seen = { slug: new Map(), sourceUrl: new Map(), title: new Map() };
 const today = new Date().toISOString().slice(0, 10);
+const imageFields = ["imageAlt", "imageCredit", "imageSource", "imageSourceUrl", "imageLicense"];
+const invalidLicense = /^(unknown|unspecified|未知|不明|n\/a|none)$/i;
+const acceptedLicense = /^(public domain|cc0(?: 1\.0)?|cc by(?:-sa)?(?: [1-4]\.0)?|wikimedia commons .+|unsplash license|pexels license|(?:un|united nations|[\w .&'-]+) .*(?:editorial use|news use)|global south monitor original artwork)$/i;
 
 function add(file, message) {
   errors.push(`${file}: ${message}`);
@@ -87,6 +90,24 @@ for (const filename of files) {
     add(relative, "updatedAt 不得早于 date");
   }
   if (!validHttpUrl(data.sourceUrl)) add(relative, "sourceUrl 必须是有效的 HTTP/HTTPS 地址");
+  const hasImage = typeof data.image === "string" && data.image.trim();
+  const hasAnyImageMetadata = ["image", ...imageFields].some((field) => data[field] !== undefined);
+  if (hasImage) {
+    if (!/^\/images\/news\/[A-Za-z0-9/_-]+\.(?:avif|webp|png|jpe?g)$/i.test(data.image)) {
+      add(relative, "image 必须是 public/images/news/ 下的本地图片路径，不得热链外部图片");
+    } else if (!fs.existsSync(path.join(root, "public", data.image.replace(/^\//, "")))) {
+      add(relative, `image 指向的本地文件不存在：public${data.image}`);
+    }
+    for (const field of imageFields) {
+      if (typeof data[field] !== "string" || !data[field].trim()) add(relative, `包含 image 时必须填写 ${field}`);
+    }
+    if (data.imageSourceUrl && !validHttpUrl(data.imageSourceUrl)) add(relative, "imageSourceUrl 必须是有效的 HTTP/HTTPS 地址");
+    const license = String(data.imageLicense ?? "").trim();
+    if (!license || invalidLicense.test(license)) add(relative, "imageLicense 不得为空、unknown 或 unspecified");
+    else if (!acceptedLicense.test(license)) add(relative, `imageLicense 不在允许范围：${license}`);
+  } else if (hasAnyImageMetadata) {
+    add(relative, "图片元数据不得脱离 image 字段单独存在");
+  }
   if (!categories.has(data.category)) add(relative, `category 不在允许范围：${data.category}`);
   if (!regions.has(data.region)) add(relative, `region 不在允许范围：${data.region}`);
   if (!contentTypes.has(data.contentType)) {

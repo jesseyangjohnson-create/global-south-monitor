@@ -15,6 +15,12 @@ export type NewsItem = {
   category: string;
   source: string;
   sourceUrl: string;
+  image?: string;
+  imageAlt?: string;
+  imageCredit?: string;
+  imageSource?: string;
+  imageSourceUrl?: string;
+  imageLicense?: string;
   summary: string;
   featured: boolean;
   contentType: "news" | "analysis" | "weeklyBrief";
@@ -46,6 +52,12 @@ function parseNewsFile(filename: string): NewsItem {
     category: data.category || categoryFromTopics(tags),
     source: data.source,
     sourceUrl: data.sourceUrl,
+    image: data.image,
+    imageAlt: data.imageAlt,
+    imageCredit: data.imageCredit,
+    imageSource: data.imageSource,
+    imageSourceUrl: data.imageSourceUrl,
+    imageLicense: data.imageLicense,
     summary: data.summary,
     featured: Boolean(data.featured),
     contentType: data.contentType || "news",

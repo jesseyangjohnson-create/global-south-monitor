@@ -45,6 +45,8 @@ Desktop.ini
 *.temp
 *~
 .cache/
+# News discovery and verification cache (never commit fetched pages).
+.cache/news/
 .pnpm-store/
 
 # Local empirical-research materials accidentally placed at repository root.
